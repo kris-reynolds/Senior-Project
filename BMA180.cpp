@@ -1,3 +1,7 @@
+/*
+ * Kudos to tonycheng888 of the mBed community
+ * He provided the original code that started the BMA180 code
+ */
 #include "mbed.h"
 #include "BMA180.h"
  

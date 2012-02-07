@@ -1,3 +1,7 @@
+/*
+ * Kudos to tonycheng888 of the mBed community
+ * He provided the original code that started the BMA180 code
+ */
 #ifndef MBED_BMA180_H
 #define MBED_BMA180_H
 #define BMA180_ID       0x00
