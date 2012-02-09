@@ -1,1 +1,13 @@
-This will contain a brief project description and timeline
+Basic structure:
+	- Initiate 2 legs with correct pins
+	- Create a body with those two legs
+		* Body can move, turn, speed, etc
+
+Movement
+	- Command body to go forward/backward
+	- Legs have corresponding move functions
+		* Move based on mode
+	- Possible 1 thread for each leg?
+		* Thread started to move each Servo
+		* Ensures won't get hung up
+	
