@@ -5,7 +5,8 @@
 class Body {
  public:
     Leg left_leg;
-    Leg right_leg
+    Leg right_leg;
+    Body( Leg left_leg, Leg right_leg );
     void set_mode(); 
     void set_speed();
     void move_forward();

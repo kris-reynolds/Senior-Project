@@ -1,8 +1,3 @@
-/*
- * Kelly
- */
-
-
 #include "mbed.h"
 #include "Servo.h"
  
@@ -30,10 +25,24 @@ Leg::calibrate() {
 }
 
 /*
- * Move the leg in the specified direction
+ * Move the Leg in the specified direction
+ * Leading LEG
  * Take into account speed and size of step
  */
-Leg::move( int direction, int speed, int size ){
+Leg::move_front( int direction, int speed, int size ){
+	// Take in direction and speed
+	
+	// Figure out angle of movement depending on speed, and stride size
+	// Move all 3 motors together...threads?
+	// Return on end of movement
+}
+
+/*
+ * Move the Leg in the specified direction
+ * Trailing Leg 
+ * Take into account speed and size of step
+ */
+Leg::move_back( int direction, int speed, int size ){
 	// Take in direction and speed
 	// Figure out angle of movement depending on speed, and stride size
 	// Move all 3 motors together...threads?
