@@ -19,7 +19,9 @@ class BMA180 {
     float getX();
     float getY();
     float getZ();
-     
+    float getAll();
+    float angleAcceleration(); 
+
     void calibrate();
      
   

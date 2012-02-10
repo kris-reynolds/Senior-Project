@@ -9,7 +9,7 @@
 /*
  * Construct a leg with direction
  */
-leg::leg(PinName upper_hip, PinName lower_hip, PinName knee, int leg_side) {
+Leg::Leg(PinName upper_hip, PinName lower_hip, PinName knee, int leg_side) {
 	up_hip_servo( upper_hip );
 	low_hip_servo( lower_hip );
 	knee_servo( lower_hip );
@@ -23,15 +23,26 @@ leg::leg(PinName upper_hip, PinName lower_hip, PinName knee, int leg_side) {
  * Return all servos to center, power up/power down or fall 
  * Subject to change after experimentation
  */
-leg::calibrate() {
+Leg::calibrate() {
 	up_hip_servo = 0.5;
 	low_hip_servo = 0.5;
 	knee_servo = 0.5;
 }
 
-leg::move( int direction, int speed, int size ){
+/*
+ * Move the leg in the specified direction
+ * Take into account speed and size of step
+ */
+Leg::move( int direction, int speed, int size ){
 	// Take in direction and speed
 	// Figure out angle of movement depending on speed, and stride size
 	// Move all 3 motors together...threads?
 	// Return on end of movement
+}
+
+/*
+ * Set the current mode (based off body)
+ */
+Leg::set_mode( int mode ) {
+	this.mode = mode; 
 }

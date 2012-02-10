@@ -5,6 +5,9 @@
 #include "mbed.h"
 #include "BMA180.h"
  
+/*
+ * Constructor
+ */
 BMA180::BMA180(PinName sda, PinName scl): _i2c(sda,scl) {
 	_i2c.frequency(100000);
 	data[0] = BMA180_ID;
@@ -12,6 +15,9 @@ BMA180::BMA180(PinName sda, PinName scl): _i2c(sda,scl) {
 	init();
 }
 	 
+/*
+ * Initiate the connection with the Accelerometer
+ */
 int BMA180::init(){
 	_i2c.write(BMA180_ADDR, data, 1);    
      _i2c.read(BMA180_ADDR, data, 1);  
@@ -24,6 +30,9 @@ int BMA180::init(){
      return 0;
 }
 		 
+/*
+ * Return the X acceleration
+ */
 float BMA180::getX(){
      data[0] = BMA180_X_ACC;
      _i2c.write(BMA180_ADDR, data, 1);
@@ -34,6 +43,9 @@ float BMA180::getX(){
      return x;
 }
 			 
+/*
+ * Return the Y acceleration
+ */
 float BMA180::getY(){
      data[0] = BMA180_Y_ACC;
      _i2c.write(BMA180_ADDR, data, 1);
@@ -43,7 +55,10 @@ float BMA180::getY(){
      y /= 16384.0;
      return y;
 }
-				 
+
+/*
+ * Return the Z acceleration
+ */
 float BMA180::getZ(){
      data[0] = BMA180_Z_ACC;
      _i2c.write(BMA180_ADDR, data, 1);
@@ -52,4 +67,26 @@ float BMA180::getZ(){
      z  = *((int16_t*)data);
      z /= 16384.0;
      return z;
+}
+
+/*
+ * Return all 3 positions in one command
+ */
+float [] BMA180::getAll(){
+	float position [] = [
+		this.getX(),
+		this.getY(),
+		this.getZ()
+	]
+}
+
+/*
+ * Get the angle of acceleration
+ * based on the current acceleration
+ */
+float [] BMA180::angleAcceleration() {
+	float position [] = this.getAll();
+
+
+
 }

@@ -2,10 +2,10 @@
 #include "Servo.h" 
 #include "leg.h"
 
-class body {
+class Body {
  public:
-    leg left_leg;
-    leg right_leg
+    Leg left_leg;
+    Leg right_leg
     void set_mode(); 
     void set_speed();
     void move_forward();
