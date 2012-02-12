@@ -1,3 +1,4 @@
+#include "mbed.h"
 #include <iostream>
 #include "BMA180.h"
 #include "leg.h"
@@ -21,14 +22,17 @@ int main() {
 	PinName low_right_hip = p25;
 	PinName right_knee = p26; 
 
+	// Set up the body
 	Leg left_leg = new Leg( up_left_hip, low_left_hip, left_knee, LEFT );
 	Leg right_leg = new Leg( up_right_hip, low_right_hip, right_knee, RIGHT );
 	Body body = new Body( left_leg, right_leg );
 
+	// Set the default speed
+	body.set_speed( 1 );
 
-	while(1) {
+	// Calibrate to stand straight at start
+	body.calibrate();
 
-	}
-
-return 0;
+	// Infinite while loop after start up
+	return 0;
 }

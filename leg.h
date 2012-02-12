@@ -18,7 +18,7 @@ class Leg {
     void move_front( int direction, int speed );
     void move_back( int direction, int speed );
      
-    void calibrate();
+    void calibrate( int pos );
     int SIDE;
      
   

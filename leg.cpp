@@ -2,7 +2,7 @@
 #include "Servo.h"
 #include "constants.h"
 
-extern int g_global;
+extern int g_mode;
 
 /*
  * Construct a leg with direction
@@ -21,10 +21,10 @@ Leg::Leg(PinName upper_hip, PinName lower_hip, PinName knee, int leg_side) {
  * Return all servos to center, power up/power down or fall 
  * Subject to change after experimentation
  */
-Leg::calibrate() {
-	up_hip_servo = 0.5;
-	low_hip_servo = 0.5;
-	knee_servo = 0.5;
+Leg::calibrate( int pos ) {
+	this.up_hip_servo = pos;
+	this.low_hip_servo = pos;
+	this.knee_servo = pos;
 }
 
 /*
@@ -43,8 +43,8 @@ Leg::move_front( int direction, int size ){
 
 	// No delays done here, just step	
 	// Figure out angle of movement depending on speed, and stride size
-	// Move all 3 motors together...threads?
 	// Return on end of movement
+	return;
 }
 
 /*
@@ -67,9 +67,6 @@ Leg::move_back( int direction, int size ){
 	// Return on end of movement
 }
 
-/*
- * Set the current mode (based off body)
- */
-Leg::set_mode( int mode ) {
-	this.mode = mode; 
+int Leg::get_position( void ) {
+	return lower_hip;
 }

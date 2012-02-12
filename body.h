@@ -14,6 +14,7 @@ class Body {
     void move_backward();
     void turn_left();
     void turn_right();
+    void calibrate();
   
  private:
     int speed;
