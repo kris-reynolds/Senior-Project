@@ -14,7 +14,7 @@ class Leg {
  public:
     Leg(PinName upper_hip, PinName lower_hip, PinName knee, int side);
 
-    void move__front( int direction, int speed );
+    void move_front( int direction, int speed );
     void move_back( int direction, int speed );
      
     void calibrate();

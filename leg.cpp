@@ -29,9 +29,16 @@ Leg::calibrate() {
  * Leading LEG
  * Take into account speed and size of step
  */
-Leg::move_front( int direction, int speed, int size ){
+Leg::move_front( int direction, int size ){
+	// Adjustment for natural movement
+	int adjust_hip  = 0;
+	int adjust_knee = 0;
+
 	// Take in direction and speed
-	
+	lower_hip -= direction * size + adjust_hip;
+	knee      += direction * size + adjust_knee;
+
+	// No delays done here, just step	
 	// Figure out angle of movement depending on speed, and stride size
 	// Move all 3 motors together...threads?
 	// Return on end of movement
@@ -42,8 +49,16 @@ Leg::move_front( int direction, int speed, int size ){
  * Trailing Leg 
  * Take into account speed and size of step
  */
-Leg::move_back( int direction, int speed, int size ){
+Leg::move_back( int direction, int size ){
+	// Adjustment for natural movement
+	int adjust_hip  = 0;
+	int adjust_knee = 0;
+
 	// Take in direction and speed
+	lower_hip += direction * size + adjust_hip;
+	knee      -= direction * size + adjust_knee;
+
+	// No delays done here just step servo
 	// Figure out angle of movement depending on speed, and stride size
 	// Move all 3 motors together...threads?
 	// Return on end of movement

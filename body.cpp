@@ -1,6 +1,7 @@
 #include "mbed.h"
 #include "Servo.h" 
 #include "leg.h"
+#include "constants.h"
 
 /* 
  * Constructor takes two legs
@@ -30,6 +31,24 @@ void Body::set_speed( int speed ) {
  * Use threads to move both legs at once
  */
 void Body::move_forward() {
+	int direction = FORWARD;
+
+	// Determine leading leg: the hip positon that is 
+	// furthest forward is leading, bring trailing
+	// forward first
+
+	// Bring leading leg forward
+	for( float pos = 0.5; pos < 0.75; pos+=0.05 ) {
+		this.left_leg.move_front( direction, pos ); 
+		this.right_leg.move_back( direction, pos );
+		wait( 1 );
+	}
+	// Bring trailing leg forward 
+	for( float pos = 0.5; pos > 0.25; pos-=0.05 ) {
+		this.right_leg.move_front( direction, pos );
+		this.left_leg.move_back( direction, pos );
+		wait( 1 );
+	}
 
 }
 
