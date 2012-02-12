@@ -12,6 +12,7 @@ const int HIGH_STEP_MODE = 4;
 const int CALIBRATION_MODE = 5;
 const int TURN_RIGHT_MODE = 6;
 const int TURN_LEFT_MODE = 7;
+const int SHUT_DOWN = 8;
 
 
 // Globals

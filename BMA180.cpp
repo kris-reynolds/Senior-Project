@@ -32,7 +32,60 @@ int BMA180::init(){
 		     
      return 0;
 }
-		 
+	 
+/*
+ * Initiate the connection with the Accelerometer
+ */
+int BMA180::run() {
+	// Define reasonable constraints
+	// If outside these constraints will kick interrupt
+	int xmin = -1;
+	int xmax = 1;
+	int ymin = -1;
+	int ymax = 1;
+	int zmin = -1;
+	int zmax = 1;
+
+	// Flag that will be set, 0 if not set
+	float x_flag;
+	float y_flag;
+	float z_flag;
+
+	// Keep going until shut down time
+	while( SHUT_DOWN != g_mode ) {
+		// Reset flags for next reading
+		x_flag = 0;
+		y_flag = 0;
+		z_flag = 0;
+
+		// Get the most current data
+		int [] accel = this.getAll(); 
+		int x_val = accel[0];
+		int y_val = accel[1];
+		int z_val = accel[2];
+
+		// Set the flags
+		if ( xmin > x_val || xmax < x_val ) 
+			x_flag = x_val;
+		if ( ymin > y_val || ymax < y_val ) 
+			y_flag = y_val;
+		if ( zmin > z_val || zmax < z_val ) 
+			z_flag = z_val;
+
+		// If a flag was thrown, do something about it
+		if( 0 != x_flag || 0 != y_flag || 0 != z_flag ) {
+			float flags[] = { x_flag, y_flag, z_flag };
+
+			// Throw and interrupt with the flag data
+			// During the interrupt this should still run
+			// Will need current accell data why doing corrections
+		}
+		// Check every tenth of a second
+		// Don't want to bog down
+		wait( 0.1 );
+	}
+}
+
 /*
  * Return the X acceleration
  */
@@ -89,7 +142,4 @@ float [] BMA180::getAll(){
  */
 float [] BMA180::angleAcceleration() {
 	float position [] = this.getAll();
-
-
-
 }
