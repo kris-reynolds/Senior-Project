@@ -1,6 +1,9 @@
 #include "mbed.h"
 #include "Servo.h"
- 
+#include "constants.h"
+
+extern int g_global;
+
 /*
  * Construct a leg with direction
  */

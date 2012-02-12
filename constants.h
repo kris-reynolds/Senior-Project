@@ -10,3 +10,6 @@ const int WALK_BACKWARD_MODE = 3;
 const int HIGH_STEP_MODE = 4;
 const int TURN_RIGHT = 5;
 const int TURN_LEFT = 6;
+
+// Globals
+int g_mode = 0;

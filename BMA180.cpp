@@ -4,6 +4,9 @@
  */
 #include "mbed.h"
 #include "BMA180.h"
+#include "constants.h"
+
+extern int g_mode;
  
 /*
  * Constructor

@@ -3,6 +3,7 @@
 #include "leg.h"
 #include "constants.h"
 
+extern int g_mode;
 /* 
  * Constructor takes two legs
  */

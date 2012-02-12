@@ -9,6 +9,7 @@
 #ifndef LEG_H
 #include "mbed.h"
 #include "Servo.h" 
+#include "constants.h"
 
 class Leg {
  public:
@@ -31,7 +32,6 @@ class Leg {
 	float up_hip_pos;
 	float low_hip_pos;
 	float knee_pos;
-	int mode;
 };
  
 #endif

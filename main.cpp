@@ -4,7 +4,10 @@
 #include "body.h"
 #include "constants.h"
 
+
 using namespace std;
+
+extern int g_mode;
 
 int main() {
 	BMA180 accelerometer = new BMA180( /*pin1, pin2 */);

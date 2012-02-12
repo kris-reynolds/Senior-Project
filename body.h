@@ -1,6 +1,7 @@
 #include "mbed.h"
 #include "Servo.h" 
 #include "leg.h"
+#include "constants.h"
 
 class Body {
  public:
@@ -15,7 +16,6 @@ class Body {
     void turn_right();
   
  private:
-    int mode;
     int speed;
 
 };
