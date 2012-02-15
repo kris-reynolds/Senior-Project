@@ -1,8 +1,12 @@
+#pragma once
 // Define direction key movement
 const int LEFT = 1;
 const int RIGHT = -1;
 const int FORWARD = 1;
 const int BACKWARD = -1;
+
+const int SUCCESS = 0;
+const int FAILURE = 1;
 
 // Define all modes used
 const int STAIRS_MODE = 1;
@@ -16,4 +20,4 @@ const int SHUT_DOWN = 8;
 
 
 // Globals
-int g_mode = 0;
+//int g_mode = 0;
