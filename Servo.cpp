@@ -21,8 +21,10 @@
  * THE SOFTWARE.
  */
 
+#include <cmath>
 #include "Servo.h"
 #include "mbed.h"
+#include "constants.h"
 
 static float clamp(float value, float min, float max) {
     if (value < min) {
@@ -34,7 +36,8 @@ static float clamp(float value, float min, float max) {
     }
 }
 
-Servo::Servo(PinName pin) : _pwm(pin) {
+Servo::Servo(PinName pin, int side) : _pwm(pin) {
+    _side = side;
     calibrate();
     write(0.5);
 }
@@ -64,7 +67,13 @@ float Servo::read() {
     return _p;
 }
 
+/*
+ * Modified to take account for side
+ */
 Servo& Servo::operator= (float percent) {
+    if( RIGHT == _side ) 
+        percent = abs( percent - 1.0 );
+        
     write(percent);
     return *this;
 }
@@ -74,7 +83,15 @@ Servo& Servo::operator= (Servo& rhs) {
     return *this;
 }
 
+/*
+ * Modified to return a value taking account for side
+ */
 Servo::operator float() {
-    return read();
+    float value = read();
+    
+    if( RIGHT == _side ) 
+        value = abs( value - 1.0 );
+        
+    return value;
 }
 

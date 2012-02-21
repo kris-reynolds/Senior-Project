@@ -45,8 +45,8 @@ void Body::calibrate() {
             pos_right += 0.1;
         
         // Write the new position
-        left_leg.calibrate( pos_left );
-        right_leg.calibrate( pos_right );
+        left_leg.calibrate(  );
+        right_leg.calibrate(  );
 
         // Wait for movement to finish
         wait( 1 );
@@ -71,7 +71,7 @@ void Body::move_forward() {
     int forward_leg;
     float forward_leg_position;
     float rear_leg_position;
-    float target_position;
+    //float target_position;
     float position_increment;
 
     if ( left_leg.get_position() >= right_leg.get_position() ) {

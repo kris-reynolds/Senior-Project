@@ -17,7 +17,6 @@ class Body {
     void turn( int direction );
     void calibrate();
 
-  
  private:
     int speed;
 

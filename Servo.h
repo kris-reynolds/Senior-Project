@@ -36,7 +36,7 @@ public:
      *
      * @param pin PwmOut pin to connect to
      */
-    Servo(PinName pin);
+    Servo(PinName pin, int side);
     Servo();
 
     /** Set the servo position, normalised to it's full range
@@ -44,7 +44,7 @@ public:
      * @param percent A normalised number 0.0-1.0 to represent the full range.
      */
     void write(float percent);
-    
+    void _write( float value );
 
     /**  Read the servo motors current position
      *
@@ -75,6 +75,7 @@ protected:
     float _range;
     float _degrees;
     float _p;
+    int _side;
 };
 
 #endif

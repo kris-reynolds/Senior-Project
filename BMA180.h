@@ -23,9 +23,7 @@ public:
     float* getAll();
     float angleAcceleration();
     int run();
-
     void calibrate();
-
 
 private:
     int init();
